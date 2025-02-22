@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css"/>
+    <title>Drop cor</title>
+    <style>
+        .central{
+            padding: 20px;
+            align-items: center;
+        }
+
+        .col-md-12 {
+            background-color: burlywood;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navBar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            padding: 6px;
+        }
+
+        .btEscolha {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imgCima, .imgBaixo {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%; 
+    max-width: 740px; 
+    min-height: 100%;
+}       .imgCima {
+    background-image: url("./imgCima.png");
+}
+        .imgBaixo {
+            background-image: url("./imgBaixo.png");
+        }
+
+
+       .texMeio{
+        height: 80px;
+       }
+
+       #corBranca{
+        display: flex;
+        width: 100%;
+       }
+
+       #corBranca {
+        background-color: white;
+       }
+
+       #corAmarela {
+        background-color: yellow;
+       }
+
+       #corPreta {
+        background-color: black;
+       }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navBar">
+         <h1>Teste</h1>
+        </div>
+         <div class="btEscolha">
+        <div class="btn-group">
+            <button class="btn btn-secondary">
+            Escolher cor
+            </button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"></button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li class="dropdown-item">
+                    <a id="corBranca"></a>
+                </li>
+                <li class="dropdown-item">
+                    <a id="corAmarela"></a>
+                </li>
+                <li class="dropdown-item">
+                    <a id="corPreta"></a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="container central">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="imgCima">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 texMeio">
+                    Seja bem vindo</div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="imgBaixo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./bootstrap.bundle.min.js"></script>
+</body>
+</html>
