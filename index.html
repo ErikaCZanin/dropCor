@@ -6,13 +6,12 @@
     <link rel="stylesheet" type="text/css" href="./bootstrap.min.css"/>
     <title>Drop cor</title>
     <style>
-        .central{
+        .central {
             padding: 20px;
             align-items: center;
         }
 
         .col-md-12 {
-            background-color: burlywood;
             height: 250px;
             display: flex;
             align-items: center;
@@ -23,7 +22,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: blanchedalmond;
             padding: 6px;
         }
 
@@ -34,88 +32,177 @@
         }
 
         .imgCima, .imgBaixo {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%; 
-    max-width: 740px; 
-    min-height: 100%;
-}       .imgCima {
-    background-image: url("./imgCima.png");
-}
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            max-width: 740px;
+            min-height: 100%;
+        }
+
+        .imgCima {
+            background-image: url("./imgCima.png");
+        }
         .imgBaixo {
             background-image: url("./imgBaixo.png");
         }
 
+        .texMeio {
+            height: 80px;
+            color: #A62987;
+        }
 
-       .texMeio{
-        height: 80px;
-       }
+        .navBar {
+            color: #A62987;
+        }
 
-       #corBranca{
-        display: flex;
-        width: 100%;
-       }
+        #corBranca,
+        #corAmarela,
+        #corPreta,
+        #corVerde {
+            display: flex;
+            width: 100%;
+        }
 
-       #corBranca {
-        background-color: white;
-       }
+        #corBranca {
+            background-color: #FFF7EA;
+            color: #FFF7EA;
+        }
 
-       #corAmarela {
-        background-color: yellow;
-       }
+        #corAmarela {
+            background-color: #F4C656;
+            color: #F4C656;
+        }
 
-       #corPreta {
-        background-color: black;
-       }
+        #corVerde {
+            background-color: #849175;
+            color: #849175;
+        }
 
+        #corPreta {
+            background-color: black;
+            color: black;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+            padding: 1px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 5px;
+            transform: none;
+            display: none; /* Inicialmente escondido */
+        }
+
+        body {
+            transition: background-color 1s ease;
+            background-color: #FFF7EA;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="navBar">
-         <h1>Teste</h1>
+            <h1>Drop Cor</h1>
         </div>
-         <div class="btEscolha">
-        <div class="btn-group">
-            <button class="btn btn-secondary">
-            Escolher cor
-            </button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"></button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-                <li class="dropdown-item">
-                    <a id="corBranca"></a>
-                </li>
-                <li class="dropdown-item">
-                    <a id="corAmarela"></a>
-                </li>
-                <li class="dropdown-item">
-                    <a id="corPreta"></a>
-                </li>
-            </ul>
-        </div>
+        <div class="btEscolha">
+            <div class="btn-group">
+                <button class="btn btn-secondary" id="clickCor">
+                    Escolher a cor
+                </button>
+                <button class="btn btn-secondary dropdown-toggle" id="clickDropdown">
+                </button>
+                <div class="dropdown-menu opcoes">
+                    <a class="dropdown-item" id="corBranca">Cor 1</a>
+                    <a class="dropdown-item" id="corAmarela">Cor 2</a>
+                    <a class="dropdown-item" id="corVerde">Cor 3</a>
+                    <a class="dropdown-item" id="corPreta">Cor 4</a>
+                </div>
+            </div>
         </div>
         <div class="container central">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="imgCima">
-                    </div>
+                    <div class="imgCima"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 texMeio">
-                    Seja bem vindo</div>
+                    <h1>Seja bem vindo</h1>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="imgBaixo">
-                    </div>
+                    <div class="imgBaixo"></div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="./bootstrap.bundle.min.js"></script>
+    <script>
+        // Definindo as ações para cada cor
+        document.getElementById("corBranca").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#FFF7EA";
+        });
+
+        document.getElementById("corAmarela").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#F4C656";
+        });
+
+        document.getElementById("corVerde").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#849175";
+        });
+
+        document.getElementById("corPreta").addEventListener("click", function() {
+            document.body.style.backgroundColor = "black";
+        });
+
+        // Resetando a cor de fundo ao clicar no primeiro botão
+        document.getElementById("clickCor").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#FFF7EA";
+        });
+
+        // Controlando a visibilidade do menu ao clicar no botão de dropdown
+        document.getElementById("clickDropdown").addEventListener("click", function() {
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+
+        // Fecha o menu se o clique for fora do botão e do menu
+        // Adicionando evento de clique nas opções
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener("click", function() {
+        // Altera a cor de fundo conforme a opção escolhida
+        if (item.id === "corBranca") {
+            document.body.style.backgroundColor = "#FFF7EA";
+        } else if (item.id === "corAmarela") {
+            document.body.style.backgroundColor = "#F4C656";
+        } else if (item.id === "corVerde") {
+            document.body.style.backgroundColor = "#849175";
+        } else if (item.id === "corPreta") {
+            document.body.style.backgroundColor = "black";
+        }
+
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+        dropdownMenu.style.display = "none";
+    });
+});
+
+
+let currentColor = 0; // Controla o ciclo das cores
+const colors = [ "#F4C656", "#849175","black"]; // Lista das cores: branca, amarela e verde
+
+document.getElementById("clickCor").addEventListener("click", function() {
+    // Altera a cor de fundo com base no índice
+    document.body.style.backgroundColor = colors[currentColor];
+
+    // Atualiza o índice para a próxima cor
+    currentColor = (currentColor + 1) % colors.length;
+});
+
+    </script>
 </body>
 </html>
